@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting.FullSerializer;
+using UnityEngine.SceneManagement;
 
 public class GameDir : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class GameDir : MonoBehaviour
         {
             timeleft = 0;
             DisplayTime(timeleft);
+            SceneManager.LoadScene("Main");
         }
     }
 
