@@ -27,6 +27,7 @@ public class GameDir : MonoBehaviour
         {
             AddPoint();
         }
+        
         DisplayPoint(point);
         if (timeleft > 0)
         {
