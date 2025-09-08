@@ -1357,6 +1357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590db1fb7615fdb4f9d0f390b5f4bef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  point: 0
+>>>>>>> Player_test
   timeleft: 60
   timerText: {fileID: 768864580}
   pointText: {fileID: 1348769922}
@@ -1388,6 +1392,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1455178018}
+<<<<<<< HEAD
+=======
+  isPaused: 0
+>>>>>>> Player_test
 --- !u!1 &1455178018
 GameObject:
   m_ObjectHideFlags: 0
