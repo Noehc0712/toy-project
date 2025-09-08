@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -14,14 +15,37 @@ public class PlayerInteraction : MonoBehaviour
 
     private GameObject heldItem;
 
+    private bool gunAcquired = false;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteract();
+            
+        }
+
+        if(Input.GetButtonDown("Fire1") && gunAcquired)
+        {
+            Fire();
+            Debug.Log("총 발사");
         }
     }
 
+    void Fire()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+        {
+            Debug.Log("3D에서 닿은 물체: " + hit.collider.name);
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                Destroy(hit.collider.gameObject);
+                Debug.Log("적이 파괴되었습니다.");
+
+            }
+        }
+    }
     void TryInteract()
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
@@ -36,6 +60,7 @@ public class PlayerInteraction : MonoBehaviour
             if (heldItem == null && target.CompareTag("Item"))
             {
                 GrabItem(target);
+                CheckItem(target);
                 return;
             }
 
@@ -60,8 +85,24 @@ public class PlayerInteraction : MonoBehaviour
             if (heldItem != null)
             {
                 DropItem();
+                CheckItem();
             }
         }
+    }
+
+    void CheckItem(GameObject target)
+    {
+        if (target == GameObject.Find("GUN")) 
+        {
+            gunAcquired = true;
+            Debug.Log("총 획득");
+        }
+      
+    }
+    void CheckItem()
+    {
+        gunAcquired = false;
+        Debug.Log("총 없음");
     }
 
     void GrabItem(GameObject item)
