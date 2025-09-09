@@ -21,7 +21,7 @@ public class TargetMaker : MonoBehaviour
 
     void SpawnTarget()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(15, spawnRangeY), 50);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), Random.Range(15, spawnRangeY), 74.9f);
         Instantiate(target, spawnPos, target.transform.rotation);
     }
 }
