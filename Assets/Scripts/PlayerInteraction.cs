@@ -19,13 +19,18 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             TryInteract();
             
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            DropItem();
 
-        if(Input.GetButtonDown("Fire1") && gunAcquired)
+        }
+
+        if (Input.GetButtonDown("Fire1") && gunAcquired)
         {
             Fire();
             Debug.Log("총 발사");
@@ -79,15 +84,7 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
         }
-        // 레이캐스트에 아무것도 감지되지 않았고, 손에 아이템을 들고 있다면
-        else
-        {
-            if (heldItem != null)
-            {
-                DropItem();
-                CheckItem();
-            }
-        }
+        
     }
 
     void CheckItem(GameObject target)
@@ -144,6 +141,9 @@ public class PlayerInteraction : MonoBehaviour
 
         // '들고 있는 아이템' 변수를 비워서 다른 물건을 들 수 있게 함
         heldItem = null;
+      
+        CheckItem();
+       
         Debug.Log("아이템을 내려놓았습니다.");
     }
 }
