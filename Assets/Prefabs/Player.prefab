@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 2564732056281130750}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.44, z: -10}
+  m_LocalPosition: {x: 0, y: 8.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -393,9 +393,9 @@ MonoBehaviour:
   crouchSpeed: 8
   isRun: 0
   isCrouch: 0
-  isMove: 1
+  isMove: 0
   isGround: 0
-  cam: {fileID: 0}
+  cam: {fileID: 6236262589959031876}
 --- !u!114 &5367800866043216653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,8 +413,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   holdPoint: {fileID: 5221217114766220327}
-  cam: {fileID: 0}
-  hasFirstItem: 1
+  cam: {fileID: 6236262589959031876}
+  hasFirstItem: 0
   hasSecondItem: 0
 --- !u!1 &8506911375023264855
 GameObject:

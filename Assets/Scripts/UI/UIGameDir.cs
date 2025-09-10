@@ -27,11 +27,6 @@ public class UIGameDir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddPoint();
-        }
-
         DisplayPoint(point);
         if (timeleft > 0)
         {
@@ -43,7 +38,11 @@ public class UIGameDir : MonoBehaviour
         {
             timeleft = 0;
             DisplayTime(timeleft);
-            SceneManager.LoadScene("Main");
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            // SceneManager.LoadScene("Main");
         }
     }
 

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -14,15 +15,17 @@ public class PlayerInteraction : MonoBehaviour
     public bool hasSecondItem = false;
 
     private GameObject heldItem;
+    public GameObject GameDir;
 
     private bool gunAcquired = false;
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
             TryInteract();
-            
+
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -39,13 +42,18 @@ public class PlayerInteraction : MonoBehaviour
 
     void Fire()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
             Debug.Log("3D에서 닿은 물체: " + hit.collider.name);
             if (hit.collider.CompareTag("Enemy"))
             {
+
+                GameDir.GetComponent<UIGameDir>().AddPoint();
+
                 Destroy(hit.collider.gameObject);
+                
                 Debug.Log("적이 파괴되었습니다.");
 
             }

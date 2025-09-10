@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class GameDir : MonoBehaviour
 {
@@ -23,10 +24,7 @@ public class GameDir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddPoint();
-        }
+        
         
         DisplayPoint(point);
         if (timeleft > 0)
